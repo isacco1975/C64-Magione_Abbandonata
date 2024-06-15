@@ -704,6 +704,9 @@ Sub GetObj() Static
        Case 3
             Call SearchObj(objects(0))
             Exit Sub
+       Case 5
+            Call SearchObj(objects(1))
+            Exit Sub
        Case 9
             Call SearchObj(objects(5))
             Exit Sub
