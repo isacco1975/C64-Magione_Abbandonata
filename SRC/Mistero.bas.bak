@@ -519,6 +519,9 @@ Sub Location(pPosition As Byte) Static 'SPAWN POINT
 
       Case 55
            Locate 1,2
+           Print ""
+           Print "{black} sei in un vicolo cieco."
+           Print "{black} non ti puoi muovere!!!"
            Poke 53281,11: poke 53280,12
            Print chr$(147)
            locate 2,10: Print "{white}una strana sostanza ti avvolge"
