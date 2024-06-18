@@ -1366,7 +1366,7 @@ Sub Start() Static
           validWord = 1
        End If
 
-       If position = 24 And (verb = "apri armadio") Then 'BIG COLOURED SKAF
+       If position = 14 And (verb = "apri armadio") Then 'BIG COLOURED SKAF
           Locate 1,20
           Call GameOver()
        End If
