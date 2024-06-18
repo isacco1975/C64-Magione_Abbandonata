@@ -671,9 +671,10 @@ Sub SearchObj(pObj As string*20) Static
         If objects(idx) = pObj  Then
            objFound = 1
 
-           Poke 646,14: Print "{rev_on}  va bene, preso!"
+            Poke 646, 14: Print "{rev_on}  va bene, preso!"
+              objects(idx) = ""
 
-           For idx2 As byte = 0 To maxObjects
+            For idx2 As byte = 0 To maxObjects
               If inventory(idx2) = "" Then
                  inventory(idx2) = pObj
                  Exit For
@@ -1340,10 +1341,18 @@ Sub Start() Static
        Poke 646,14: Input " cosa fai? "; verb
 
        If position = 5 And (verb = "apri armadio" Or verb = "apri armadietto") Then 'SMALL SKAF
-          Locate 1,16
-          Print "{green}        c'e' una torcia dentro"
-          Call PressAKeyToContinue()
-          validWord = 1
+            Locate 1, 16
+          For idx As Byte = 0 To maxObjects
+                If inventory(idx) = "torcia" Then
+                    Print "{green}               e' vuoto!      "
+                    Exit For
+                Else
+                    Print "{green}        c'e' una torcia dentro"
+                    Exit For
+                End If
+            Next
+            Call PressAKeyToContinue()
+            validWord = 1
        End If
 
        If position = 9 And (verb = "apri armadio" Or verb = "apri armadietto") Then 'SMALL SKAF
