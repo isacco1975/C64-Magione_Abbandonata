@@ -522,8 +522,14 @@ Sub Location(pPosition As Byte) Static 'SPAWN POINT
            Print ""
            Print "{black} sei in un vicolo cieco."
            Print "{black} non ti puoi muovere!!!"
-           'Call PressAKeyToContinue()
-           'Call GameOver()
+           Poke 53281,11: poke 53280,12
+           Print chr$(147)
+           locate 2,10: Print "{white}una strana sostanza ti avvolge"
+           locate 2,11: Print "{white}bloccando ogni tuo movimento."
+           locate 2,12: Print "{white}in pochi istanti soccombi..."
+           locate 2,15: Print "{white}sei morto!"
+           locate 2,16: Print "{white}fine del gioco"
+           End
    End Select
 End Sub
 ' -------------------------------------------------------------
@@ -1326,7 +1332,7 @@ Sub Start() Static
 
    Do While 1
        validWord = 0
-        Print "debug position = " ,position 
+        'Print "debug position = " ,position 
        'inventory(0) = objects(0) 'TODO REMOVE
        'inventory(1) = objects(1) 'TODO REMOVE
        'inventory(2) = objects(2) 'TODO REMOVE
