@@ -666,7 +666,8 @@ End Sub
 
 Sub SearchObj(pObj As string*20, rObj As string*20) Static
     Dim objFound As Byte: objFound = 0
-
+Print "dbg: pobj : " + pObj
+Print "dbg: robj : " + rObj
     For idx As Byte = 0 To maxObjects
         If rObj = pObj Then
            If objects(idx) = pObj  Then
