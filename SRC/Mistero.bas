@@ -579,63 +579,63 @@ Sub Help(pPosition As Byte) Static
 End Sub
 ' -------------------------------------------------------------
 
-Sub CheckBadWords(verb As string*30) Static
-    If verb = "stronzo" _
-    Or verb = "vaffanculo" _
-    Or verb = "idiota" _
-    Or verb = "deficiente" _
-    Or verb = "imbecille" _
-    Or verb = "testa di cazzo" _
-    Or verb = "minchione" _
-    Or verb = "polifemo" _
-    Or verb = "pisquano" _
-    Or verb = "srupido" _
-    Or verb = "mongolo" _
-    Or verb = "bigolo" _
-    Or verb = "pescegatto" _
-    Or verb = "mongoloide" _
-    Or verb = "fottiti" _
-    Or verb = "inculati" _
-    Or verb = "culattone" _
-    Or verb = "frocio" _
-    Or verb = "frocioide" _
-    Or verb = "zoccola" _
-    Or verb = "troia" _
-    Or verb = "troiona" _
-    Or verb = "baldracca" _
-    Or verb = "bagascia" _
-    Or verb = "puttana" _
-    Or verb = "maiala" _
-    Or verb = "culo" _
-    Or verb = "cazzo" _
-    Or verb = "merda" _
-    Or verb = "fesso" _
-    Or verb = "minchia" _
-    Or verb = "cazzone" _
-    Or verb = "vaccagare" _
-    Or verb = "va a cagare" _
-    Or verb = "vai a cagare" _
-    Or verb = "vai a fanculo" _
-    Or verb = "vai a fare in culo" _
-    Or verb = "vai a dare via il culo" _
-    Or verb = "vadavialcul" _
-    Or verb = "a li mortacci tua" _
-    Or verb = "pisquano" _
-    Or verb = "cretino" Then
-       validWord = 1
-       Poke 646, 1
-       Poke 53281,10
-       Print chr$(147)
-       Print "le tue brutte parole suggeriscono che"
-       Print "dovresti lavare la tua tastiera "
-       Print "col sapone! sei un maleducato!!!"
-       Print ""
-       Print "fine del gioco!"
-       Print ""
-       Print "tie'!"
-       end
-    End If
-End Sub
+'removed due to insufficient space Sub CheckBadWords(verb As string*30) Static
+'removed due to insufficient space     If verb = "stronzo" _
+'removed due to insufficient space     Or verb = "vaffanculo" _
+'removed due to insufficient space     Or verb = "idiota" _
+'removed due to insufficient space     Or verb = "deficiente" _
+'removed due to insufficient space     Or verb = "imbecille" _
+'removed due to insufficient space     Or verb = "testa di cazzo" _
+'removed due to insufficient space     Or verb = "minchione" _
+'removed due to insufficient space     Or verb = "polifemo" _
+'removed due to insufficient space     Or verb = "pisquano" _
+'removed due to insufficient space     Or verb = "srupido" _
+'removed due to insufficient space     Or verb = "mongolo" _
+'removed due to insufficient space     Or verb = "bigolo" _
+'removed due to insufficient space     Or verb = "pescegatto" _
+'removed due to insufficient space     Or verb = "mongoloide" _
+'removed due to insufficient space     Or verb = "fottiti" _
+'removed due to insufficient space     Or verb = "inculati" _
+'removed due to insufficient space     Or verb = "culattone" _
+'removed due to insufficient space     Or verb = "frocio" _
+'removed due to insufficient space     Or verb = "frocioide" _
+'removed due to insufficient space     Or verb = "zoccola" _
+'removed due to insufficient space     Or verb = "troia" _
+'removed due to insufficient space     Or verb = "troiona" _
+'removed due to insufficient space     Or verb = "baldracca" _
+'removed due to insufficient space     Or verb = "bagascia" _
+'removed due to insufficient space     Or verb = "puttana" _
+'removed due to insufficient space     Or verb = "maiala" _
+'removed due to insufficient space     Or verb = "culo" _
+'removed due to insufficient space     Or verb = "cazzo" _
+'removed due to insufficient space     Or verb = "merda" _
+'removed due to insufficient space     Or verb = "fesso" _
+'removed due to insufficient space     Or verb = "minchia" _
+'removed due to insufficient space     Or verb = "cazzone" _
+'removed due to insufficient space     Or verb = "vaccagare" _
+'removed due to insufficient space     Or verb = "va a cagare" _
+'removed due to insufficient space     Or verb = "vai a cagare" _
+'removed due to insufficient space     Or verb = "vai a fanculo" _
+'removed due to insufficient space     Or verb = "vai a fare in culo" _
+'removed due to insufficient space     Or verb = "vai a dare via il culo" _
+'removed due to insufficient space     Or verb = "vadavialcul" _
+'removed due to insufficient space     Or verb = "a li mortacci tua" _
+'removed due to insufficient space     Or verb = "pisquano" _
+'removed due to insufficient space     Or verb = "cretino" Then
+'removed due to insufficient space        validWord = 1
+'removed due to insufficient space        Poke 646, 1
+'removed due to insufficient space        Poke 53281,10
+'removed due to insufficient space        Print chr$(147)
+'removed due to insufficient space        Print "le tue brutte parole suggeriscono che"
+'removed due to insufficient space        Print "dovresti lavare la tua tastiera "
+'removed due to insufficient space        Print "col sapone! sei un maleducato!!!"
+'removed due to insufficient space        Print ""
+'removed due to insufficient space        Print "fine del gioco!"
+'removed due to insufficient space        Print ""
+'removed due to insufficient space        Print "tie'!"
+'removed due to insufficient space        end
+'removed due to insufficient space     End If
+'removed due to insufficient space End Sub
 ' -------------------------------------------------------------
 
 Sub ShowInventory() Static
@@ -831,23 +831,43 @@ Sub ObjectsInLocation(pPosition As Byte) Static
     Select Case pPosition
        Case 3
             Print ""
-            Poke 646,3: Print "  c'e' una ", objects(0)
+            If objects(0) <> "" Then
+               Poke 646,3: Print "  c'e' una ", objects(0)
+            Else
+               Poke 646,3: Print "          non c'e' niente qui."
+            End If
 
        Case 5
             Print ""
-            Poke 646,3: Print "  c'e' un ", objects(5)
+            If objects(5) <> "" Then
+               Poke 646,3: Print "  c'e' un ", objects(5)
+            Else
+               Poke 646,3: Print "          non c'e' niente qui."
+            End If
 
        Case 24
             Print ""
-            Poke 646,3: Print "  c'e' un ", objects(6)
+            If objects(6) <> "" Then
+               Poke 646,3: Print "  c'e' un ", objects(6)
+            Else
+               Poke 646,3: Print "          non c'e' niente qui."
+            End If
 
        Case 14
             Print ""
-            Poke 646,3: Print "  c'e' una ", objects(4)
+            If objects(4) <> "" Then
+               Poke 646,3: Print "  c'e' un ", objects(4)
+            Else
+               Poke 646,3: Print "          non c'e' niente qui."
+            End If
 
        Case 33
             Print ""
-            Poke 646,3: Print "  c'e' una ", objects(7)
+            If objects(7) <> "" Then
+               Poke 646,3: Print "  c'e' un ", objects(7)
+            Else
+               Poke 646,3: Print "          non c'e' niente qui."
+            End If
     End Select
 
     Call PressAKeyToContinue()
@@ -855,33 +875,31 @@ End Sub
 ' -------------------------------------------------------------
 
 Sub CheckMove(verb As String*10) Static
-    validWord = 1
-
     Select Case position
        Case 0
             If (verb = "s" Or verb = "sud") Then
-               position = 2 'CAR
+               position = 2: validWord = 1 'CAR
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 1 'FRONT OF THE PALACE
+               position = 1: validWord = 1 'FRONT OF THE PALACE
             End If
 
        Case 1
             If (verb = "n" Or verb = "nord") Then
-               position = 4 'MAIN HALL
+               position = 4: validWord = 1 'MAIN HALL
             End If
 
             If (verb = "e" Or verb = "est")  Then
-               position = 3 'SMALL ROAD TO CAPANNO
+               position = 3: validWord = 1 'SMALL ROAD TO CAPANNO
             End If
 
             If (verb = "s" Or verb = "sud")  Then
-               position = 0 'SQUARE
+               position = 0: validWord = 1 'SQUARE
             End If
 
        Case 2
             If (verb = "n" Or verb = "nord") Then
-               position = 0 'SQUARE
+               position = 0: validWord = 1 'SQUARE
             End If
 
        Case 3
@@ -891,418 +909,418 @@ Sub CheckMove(verb As String*10) Static
 
        Case 4
             If (verb = "o" Or verb = "ovest") Then
-               position = 29
+               position = 29: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 1
+               position = 1: validWord = 1
             End If
 
             If (verb = "n" Or verb = "nord") Then
-               position = 7 'HALL WITH GREEN DOOR AND STAIRS AND ROOM
+               position = 7: validWord = 1 'HALL WITH GREEN DOOR AND STAIRS AND ROOM
             End If
 
        Case 5
             If (verb = "e" Or verb = "est") Then
-               position = 7 'HALL WITH STAIRS TO P1
+               position = 7: validWord = 1 'HALL WITH STAIRS TO P1
             End If
 
        Case 6
             If (verb = "o" Or verb = "ovest") And position = 6 Then
-               position = 7 'HALL WITH STAIRS TO P1
+               position = 7: validWord = 1 'HALL WITH STAIRS TO P1
             End If
 
        Case 7
             If (verb = "o" Or verb = "ovest") Then
-               position = 30 'IN FRONT OF GREEN DOOR
+               position = 30: validWord = 1 'IN FRONT OF GREEN DOOR
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 6 'ROOM WITHOUT DOOR
+               position = 6: validWord = 1 'ROOM WITHOUT DOOR
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 8 'HALL ON P1
+               position = 8: validWord = 1 'HALL ON P1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 4 'HALL ON P1
+               position = 4: validWord = 1 'HALL ON P1
             End If
 
        Case 8
             If (verb = "s" Or verb = "sud") Then
-               position = 7
+               position = 7: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
                If isTorchTurnedOn = 1 Then
-                  position = 9
+                  position = 9: validWord = 1
                End If
             End If
             If (verb = "e" Or verb = "est") Then
                If isTorchTurnedOn = 1 Then
-                  position = 22
+                  position = 22: validWord = 1
                End If
             End If
             If (verb = "o" Or verb = "ovest") Then
                If isTorchTurnedOn = 1 Then
-                  position = 31 ' S = DOOR TO 14 AND N = TO 2P
+                  position = 31: validWord = 1 ' S = DOOR TO 14 AND N = TO 2P
                End If
             End If
 
        Case 9
             If (verb = "s" Or verb = "sud") Then
-               position = 8
+               position = 8: validWord = 1
             End If
 
        Case 10
             If (verb = "o" Or verb = "ovest") Then
-               position = 8
+               position = 8: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 15
+               position = 15: validWord = 1
             End If
 
        Case 11
             If (verb = "n" Or verb = "nord") Then
-               position = 12
+               position = 12: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 31
+               position = 31: validWord = 1
             End If
 
        Case 12
             If (verb = "n" Or verb = "nord") Then
-               position = 13 ' BEDROOM
+               position = 13: validWord = 1 ' BEDROOM
             End If
             If (verb = "ne" Or verb = "nordest") Then
-               position = 14 ' EMPTY ROOM W/KEY TO BASEMENT
+               position = 14: validWord = 1 ' EMPTY ROOM W/KEY TO BASEMENT
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 11
+               position = 11: validWord = 1
             End If
 
        Case 13
             If (verb = "s" Or verb = "sud") Then
-               position = 12
+               position = 12: validWord = 1
             End If
 
        Case 14
             If (verb = "s" Or verb = "sud") Then
-               position = 12
+               position = 12: validWord = 1
             End If
 
        Case 15
             If (verb = "n" Or verb = "nord") Then
-               position = 10
+               position = 10: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
                If isDoor32Open = 0 Then
-                  position = 32
+                  position = 32: validWord = 1
                Else
-                  position = 16
+                  position = 16: validWord = 1
                End If
             End If
 
        Case 16
             If (verb = "s" Or verb = "sud") Then
-               position = 17
+               position = 17: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 15
+               position = 15: validWord = 1
             End If
 
        Case 17
             If (verb = "n" Or verb = "nord") Then
-               position = 16
+               position = 16: validWord = 1
             End If
 
        Case 18
             If (verb = "e" Or verb = "est") Then
-               position = 4
+               position = 4: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 19
+               position = 19: validWord = 1
             End If
 
        Case 19
             If (verb = "n" Or verb = "nord") Then
-               position = 18
+               position = 18: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 20
+               position = 20: validWord = 1
             End If
 
        Case 20
             If (verb = "n" Or verb = "nord") Then
-               position = 19
+               position = 19: validWord = 1
             End If
             If (verb = "e" Or verb = "est")  Then
-               position = 21
+               position = 21: validWord = 1
             End If
             If (verb = "o" Or verb = "ovest") Then
-               position = 23
+               position = 23: validWord = 1
             End If
 
        Case 21
             If (verb = "s" Or verb = "sud") Then
-               position = 42
+               position = 42: validWord = 1
             End If
             If (verb = "e" Or verb = "est")  Then
-               position = 49
+               position = 49: validWord = 1
             End If
             If (verb = "o" Or verb = "ovest") Then
-               position = 20
+               position = 20: validWord = 1
             End If
 
        Case 22
             If (verb = "o" Or verb = "ovest") Then
-               position = 8
+               position = 8: validWord = 1
             End If
 
        Case 23
             If (verb = "o" Or verb = "ovest") Then
-               position = 26
+               position = 26: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 20
+               position = 20: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 25
+               position = 25: validWord = 1
             End If
 
        Case 24
             If (verb = "n" Or verb = "nord") Then
-               position = 31 ' FORK
+               position = 31: validWord = 1 ' FORK
             End If
 
        Case 25
             If (verb = "s" Or verb = "sud") Then
-               position = 23
+               position = 23: validWord = 1
             End If
 
        Case 26
             If (verb = "s" Or verb = "sud") Then
-               position = 28
+               position = 28: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 23
+               position = 23: validWord = 1
             End If
             If (verb = "o" Or verb = "ovest") Then
-               position = 27
+               position = 27: validWord = 1
             End If
 
        Case 27
             If (verb = "e" Or verb = "est") Then
-               position = 26
+               position = 26: validWord = 1
             End If
 
        Case 28
             If (verb = "s" Or verb = "sud") Then
-               position = 34
+               position = 34: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 33
+               position = 33: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 26
+               position = 26: validWord = 1
             End If
 
        Case 29
             If (verb = "e" Or verb = "est") Then
-               position = 4 'MAIN HALL
+               position = 4: validWord = 1 'MAIN HALL
             End If
 
        Case 30
             If (verb = "e" Or verb = "est") Then
-               position = 7
+               position = 7: validWord = 1
             End If
 
        Case 31
             If (verb = "s" Or verb = "sud") Then
-               position = 24 ' UWAGA TUTAJ :)
+               position = 24: validWord = 1 ' UWAGA TUTAJ :)
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 11 ' STARIS TO P2
+               position = 11: validWord = 1 ' STARIS TO P2
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 8
+               position = 8: validWord = 1
             End If
 
        Case 32
             If (verb = "n" Or verb = "nord") Then
-               position = 15
+               position = 15: validWord = 1
             End If
 
        Case 33
             If (verb = "o" Or verb = "ovest") Then
-               position = 28
+               position = 28: validWord = 1
             End If
 
        Case 34
             If (verb = "o" Or verb = "ovest") Then
-               position = 35
+               position = 35: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 36
+               position = 36: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 37
+               position = 37: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 28
+               position = 28: validWord = 1
             End If
 
        Case 35
             If (verb = "e" Or verb = "est") Then
-               position = 34
+               position = 34: validWord = 1
             End If
 
        Case 36
             If (verb = "n" Or verb = "nord") Then
-               position = 34
+               position = 34: validWord = 1
             End If
 
        Case 37
             If (verb = "o" Or verb = "ovest") Then
-               position = 34
+               position = 34: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 40
+               position = 40: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 39
+               position = 39: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 38
+               position = 38: validWord = 1
             End If
 
        Case 38
             If (verb = "s" Or verb = "sud") Then
-               position = 37
+               position = 37: validWord = 1
             End If
 
        Case 39
             If (verb = "o" Or verb = "ovest") Then
-               position = 37
+               position = 37: validWord = 1
             End If
 
        Case 40
             If (verb = "n" Or verb = "nord") Then
-               position = 37
+               position = 37: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 41
+               position = 41: validWord = 1
             End If
 
        Case 41
             If (verb = "n" Or verb = "nord") Then
-               position = 42
+               position = 42: validWord = 1
             End If
             If (verb = "o" Or verb = "ovest") Then
-               position = 40
+               position = 40: validWord = 1
             End If
 
        Case 42
             If (verb = "n" Or verb = "nord") Then
-               position = 21
+               position = 21: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 43
+               position = 43: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 41
+               position = 41: validWord = 1
             End If
 
        Case 43
             If (verb = "o" Or verb = "ovest") Then
-               position = 42
+               position = 42: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 47
+               position = 47: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 45
+               position = 45: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 44
+               position = 44: validWord = 1
             End If
 
        Case 44
             If (verb = "s" Or verb = "sud") Then
-               position = 43
+               position = 43: validWord = 1
             End If
 
        Case 45
             If (verb = "o" Or verb = "ovest") Then
-               position = 43
+               position = 43: validWord = 1
             End If
 
        Case 46
             If (verb = "o" Or verb = "ovest") Then
-               position = 47
+               position = 47: validWord = 1
             End If
 
        Case 47
             If (verb = "n" Or verb = "nord") Then
-               position = 43
+               position = 43: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
                If isDoor46Open = 1 Then
-                  position = 48
+                  position = 48: validWord = 1
                Else
-                  position = 46
+                  position = 46: validWord = 1
                End If
             End If
 
        Case 48
             If (verb = "o" Or verb = "ovest") Then
                If isDoor46Open = 0 Then
-                  position = 47
+                  position = 47: validWord = 1
                End If
             End If
 
        Case 49
             If (verb = "o" Or verb = "ovest") Then
-               position = 21
+               position = 21: validWord = 1
             End If
             If (verb = "n" Or verb = "nord") Then
-               position = 50
+               position = 50: validWord = 1
             End If
 
        Case 50
             If (verb = "o" Or verb = "ovest") Then
-               position = 51
+               position = 51: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 49
+               position = 49: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 52
+               position = 52: validWord = 1
             End If
 
        Case 51
             If (verb = "e" Or verb = "est") Then
-               position = 50
+               position = 50: validWord = 1
             End If
 
        Case 52
             If (verb = "o" Or verb = "ovest") Then
-               position = 50
+               position = 50: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 53
+               position = 53: validWord = 1
             End If
             If (verb = "e" Or verb = "est") Then
-               position = 54
+               position = 54: validWord = 1
             End If
 
        Case 53
             If (verb = "n" Or verb = "nord") Then
-               position = 52
+               position = 52: validWord = 1
             End If
 
        Case 54
             If (verb = "o" Or verb = "ovest") Then
-               position = 52
+               position = 52: validWord = 1
             End If
             If (verb = "s" Or verb = "sud") Then
-               position = 55
+               position = 55: validWord = 1
             End If
     End Select
 
@@ -1328,7 +1346,7 @@ Sub Start() Static
 
    Do While 1
        validWord = 0
-        'Print "debug position = " ,position 
+        'Print "debug position = " ,position
        'inventory(0) = objects(0) 'TODO REMOVE
        'inventory(1) = objects(1) 'TODO REMOVE
        'inventory(2) = objects(2) 'TODO REMOVE
@@ -1346,8 +1364,8 @@ Sub Start() Static
        verb = ""
        Poke 646,14: Input " cosa fai? "; verb
 
-       If position = 5 And (verb = "apri armadio" Or verb = "apri armadietto") Then 'SMALL SKAF
-            Locate 1, 16
+       If position = 5 And (verb = "apri armadio" Or verb = "apri armadietto" Or verb = "apri piccolo armadietto") Then 'SMALL SKAF
+          Locate 1, 16
           For idx As Byte = 0 To maxObjects
                 If inventory(idx) = "torcia" Then
                     Print "{green}               e' vuoto!      "
@@ -1361,7 +1379,7 @@ Sub Start() Static
             validWord = 1
        End If
 
-       If position = 9 And (verb = "apri armadio" Or verb = "apri armadietto") Then 'SMALL SKAF
+       If position = 9 And (verb = "apri armadio" Or verb = "apri armadietto" Or verb = "apri grosso armadio") Then 'SMALL SKAF
           Locate 1,20
           Print "{green}       solo un mucchio di archivi."
           Call PressAKeyToContinue()
@@ -1515,7 +1533,7 @@ Sub Start() Static
        End If
 
        Call CheckMove(verb)
-       Call CheckBadWords(verb)
+       'removed due to insufficient space Call CheckBadWords(verb)
 
        If verb = "i" Or verb = "inventatio" Then
           validWord = 1
@@ -1641,7 +1659,7 @@ Sub Init() Static
    Print CHR$(147): Poke 53281,1: Poke 53280,1
    Print "{red}          magione abbandonata"
    Print "{red}       c.2024 isaac garcia peveri"
-   Print "{red}           per 1001avventure     "
+   Print "{red}           per 1001avventura"
    Print ""
    'Poke 646, 09: Print "         alpha 1.00 non finito "
    Print ""
@@ -1654,9 +1672,9 @@ Sub Init() Static
 
        If scelta = "i" then
           Print CHR$(147): Poke 53281,1: Poke 53280,1
-          Print "{black}          magione abbandonata"
-          Print "{black}       c.2024 isaac garcia peveri"
-          Print "{black}          per 1001avventure"
+          Print "{red}          magione abbandonata"
+          Print "{red}       c.2024 isaac garcia peveri"
+          Print "{red}          per 1001avventura"
           Print ""
           Print "{black} n, s, o, e = vai nella direzione"
           Print ""
