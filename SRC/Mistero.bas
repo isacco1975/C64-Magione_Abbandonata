@@ -16,6 +16,7 @@ Dim objToUse As String*18: objToUse = ""
 Dim scelta As String*1: scelta = ""
 Dim validWord As Byte: validWord = 0
 Dim isDoor20Open As Byte: isDoor20Open = 0
+Dim isDoor30Open As Byte: isDoor30Open = 0
 Dim isDoor32Open As Byte: isDoor32Open = 0
 Dim isDoor46Open As Byte: isDoor46Open = 0
 Dim isCpuPwdCorrect As Byte: isCpuPwdCorrect = 0
@@ -904,7 +905,7 @@ Sub CheckMove(verb As String*10) Static
 
        Case 3
             If (verb = "o" Or verb = "ovest") Then
-               position = 1 'FRONT OF THE PALACE FROM CAPANNO
+               position = 1: validWord = 1 'FRONT OF THE PALACE FROM CAPANNO
             End If
 
        Case 4
@@ -1398,6 +1399,8 @@ Sub Start() Static
           validWord = 1
        End If
 
+       Dim objFound As byte: objFound = 0
+
        If verb = "entra" Or verb = "apri" Then
           If position = 2 Then 'CAR'
             Locate 1,20
@@ -1408,7 +1411,23 @@ Sub Start() Static
 
           If position = 30 Then 'GREEN DOOR
             Locate 1,20
-            Position = 5 'ROOM WITH SKAF
+            For idx As byte = 0 To maxObjects
+               If inventory(idx) = objects(0) Then
+                  objFound = 1
+                  isDoor30Open = 1
+                  Locate 1,20
+                  Print "{green}           hai aperto la porta"
+                  Exit For
+               End If
+            Next
+
+            If objFound = 1 Then
+               position = 7
+            Else
+               Locate 1,20
+               Print "{green}     questa porta e' chiusa a chiave"
+            End If
+            Call PressAKeyToContinue()
             validWord = 1
           End If
 
@@ -1417,8 +1436,6 @@ Sub Start() Static
             Position = 10 'ROOM WITH SKAF
             validWord = 1
           End If
-
-          Dim objFound As byte: objFound = 0
 
           If position = 32 Then 'BLACK DOOR
             Locate 1,20
