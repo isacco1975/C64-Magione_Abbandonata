@@ -778,7 +778,7 @@ Sub UseObj() Static
 
     Select Case position
          Case 9
-             If objToUse = "computer" Then
+             If objToUse = "computer" Or objToUse = "personal computer" Then
                 If isCpuPwdCorrect = 0 Then
                    Dim cod As string*10: cod = ""
                    Locate 1,16
