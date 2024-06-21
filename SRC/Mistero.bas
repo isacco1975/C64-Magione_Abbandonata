@@ -1422,7 +1422,7 @@ Sub Start() Static
             Next
 
             If objFound = 1 Then
-               position = 7
+               position = 5
             Else
                Locate 1,20
                Print "{green}     questa porta e' chiusa a chiave"
