@@ -761,7 +761,7 @@ End Sub
 Sub CheckObj() Static
     Dim objFound As Byte: objFound = 0
 
-    If objToUse = "tazza" Or objToUse = "tazza di caffe" Then
+    If objToUse = "tazza" Or objToUse = "tazza di caffe"  Or objToUse = "tazza di caffe'" Then
        Poke 646,14: Print "{rev_on}  c'e' scritto 16777215 sotto la tazza."
     Else
        Locate 1,20
