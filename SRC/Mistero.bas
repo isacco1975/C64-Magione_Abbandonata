@@ -788,7 +788,7 @@ Sub UseObj() Static
                       isCpuPwdCorrect = 1
                       isDoor20Open = 1
                       Locate 1,20
-                      Print "{green} un suono sordo proviene da qualche parte"
+                      Print "{green} un suono sordo vicino..."
                       Call PressAKeyToContinue()
                    Else
                       Locate 1,20
@@ -1483,17 +1483,14 @@ Sub Start() Static
 
           If position = 29 Then 'RED DOOR
             If isDoor20Open = 0 Then
-               Dim cod As string*10: cod = ""
                Locate 1,19
                Print "{green}   la porta e' bloccata. non si apre."
-               If isDoor20Open = 1 Then
+            End If
+            If isDoor20Open = 1 Then
                   Position = 18 'HALL TO STAIRS TO B2
                   Locate 1,20
                   Print "{green}           hai aperto la porta"
                   Call PressAKeyToContinue()
-               End If
-            Else
-                Position = 18 'HALL TO STAIRS TO B2
             End If
 
             Call PressAKeyToContinue()
